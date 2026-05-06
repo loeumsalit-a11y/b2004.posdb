@@ -117,11 +117,23 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-MEDIA_URL = '/media/'
+# Media files (User uploads)
+MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-CSRF_TRUSTED_ORGINS = [
+
+LOGIN_REDIRECT_URL  = '/sales/products/'   # after login → product catalogue
+LOGOUT_REDIRECT_URL = '/accounts/login/'   # after logout → back to login page
+
+# With these settings + the root RedirectView, the full navigation cycle is:
+#   /  →  /accounts/login/  →  (log in)  →  /sales/products/
+#   (log out)  →  /accounts/login/
+
+CSRF_TRUSTED_ORIGINS = [
     'https://loemsalit123.pythonanywhere.com',
     'http://loemsalit123.pythonanywhere.com',
-SECURE_BROWSER_XSS_FILTER = Ture
-SECURE_CONTENT_TYPE_NOSNIFF = Ture
+]
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
