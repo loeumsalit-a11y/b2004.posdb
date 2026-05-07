@@ -134,7 +134,6 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'   # after logout → back to login page
 CSRF_TRUSTED_ORIGINS = [
     'https://loemsalit123.pythonanywhere.com',
     'http://loemsalit123.pythonanywhere.com',
-
 ]
 
 SECURE_BROWSER_XSS_FILTER = True
